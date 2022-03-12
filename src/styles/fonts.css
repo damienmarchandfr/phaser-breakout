@@ -1,4 +1,4 @@
 @font-face {
   font-family: scoreFont;
-  src: url("../../public/assets/score.ttf");
+  src: url("/assets/score.ttf");
 }

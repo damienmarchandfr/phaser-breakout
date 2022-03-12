@@ -107,14 +107,13 @@ export default class Demo extends Phaser.Scene {
           this.numberOfBlocks--;
           this.score++
           this.scoreText?.setText(this.score.toString())
-          console.log(this.numberOfBlocks)
         })    
     }
   }
 
   private initLifeBar(){
     for (let i = 0; i < this.playerLife; i++) {
-      const image = this.add.image(5 + i * 10,0,'life').setOrigin(0)    
+      const image = this.add.image(5 + i * 20,0,'life').setOrigin(0).setScale(2)    
       this.lifebarImages.push(image)
     }
   }
@@ -123,7 +122,10 @@ export default class Demo extends Phaser.Scene {
     // Destroy some image if life changed
     if(this.playerLife === this.lifebarImages.length) return
 
-    const toDestroy = this.lifebarImages.pop()
-    toDestroy?.destroy()
+    console.log(this.playerLife)
+
+    if(this.lifebarImages[this.playerLife])
+      this.lifebarImages[this.playerLife].setTexture('no-life')
+    
   }
 }
