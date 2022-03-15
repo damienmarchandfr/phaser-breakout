@@ -15,6 +15,8 @@ export default class Demo extends Phaser.Scene {
  
   private scoreText : Phaser.GameObjects.Text | null = null
 
+  private escapeKey : Phaser.Input.Keyboard.Key | null = null
+
   constructor() {
     super('GameScene');
   }
@@ -28,6 +30,11 @@ export default class Demo extends Phaser.Scene {
   }
 
   create() {
+    this.escapeKey = this.input.keyboard.addKey('ESC')
+    this.escapeKey.on('down', ()=> { 
+      this.scene.start('MenuScene')
+    });
+
     this.physics.world.setBoundsCollision(true,true,true,false)
     
     this.player = this.physics.add.image(400,560,'player').setScale(1.5)
@@ -74,6 +81,9 @@ export default class Demo extends Phaser.Scene {
 
       }
     }
+
+
+  
   }
 
   private initBall(){
@@ -122,10 +132,7 @@ export default class Demo extends Phaser.Scene {
     // Destroy some image if life changed
     if(this.playerLife === this.lifebarImages.length) return
 
-    console.log(this.playerLife)
-
     if(this.lifebarImages[this.playerLife])
       this.lifebarImages[this.playerLife].setTexture('no-life')
-    
   }
 }

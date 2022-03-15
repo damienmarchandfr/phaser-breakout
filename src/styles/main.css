@@ -1,0 +1,11 @@
+* {
+  font-family: "scoreFont";
+}
+
+.button {
+  color: white;
+  margin-bottom: 1em;
+  background-color: blueviolet;
+  font-size: 2em;
+  padding: 0.2em;
+}

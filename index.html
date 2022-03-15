@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Pong</title>
+    <title>Phaser 3 Breakout</title>
     <meta charset="utf-8" />
     <style>
       body {
@@ -10,9 +10,40 @@
     </style>
     <link rel="preload" as="font" href="/assets/score.ttf" type="font/ttf" />
     <link rel="stylesheet" href="/src/styles/fonts.css">
+    <link rel="stylesheet" href="/src/styles/menu.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/how.css">
     <script type="module" src="/src/index.ts"></script>
   </head>
   <body>
     <div id="game"></div>
+    <!-- Menu -->
+    <div id="menu" style="display: none;">
+      <h1>Phaser 3 Breakout</h1>
+      <div id="menu-buttons">
+        <button class="button" id="start-button">
+          Start game
+        </button>
+        <button class="button" id="how-to-play-button">
+          How to play ?
+        </button>
+      </div>
+      <div id="damien-marchand">
+        <span >By Damien Marchand</span>
+      </div>
+    </div>
+
+        <!-- How to play ? -->
+    <div id="how" style="display: none;">
+      <h1>How to play ?</h1>
+      <div>
+        <h3>To move use</h3>
+        <img src="/assets/left.png" alt="right">
+        <img src="/assets/right.png" alt="right">
+        
+        <h3>To accelerate use</h3>
+        <img src="/assets/space.png" alt="space">
+      </div>
+    </div>
   </body>
 </html>
