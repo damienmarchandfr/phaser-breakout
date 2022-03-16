@@ -17,6 +17,8 @@ export default class Demo extends Phaser.Scene {
 
   private escapeKey : Phaser.Input.Keyboard.Key | null = null
 
+  private numberOfBlocksDestroyed = 0
+
   constructor() {
     super('GameScene');
   }
@@ -42,6 +44,7 @@ export default class Demo extends Phaser.Scene {
     this.player.setCollideWorldBounds(true)
     this.player.setPushable(false)
     
+    
     this.ball = this.physics.add.image(400,500,'ball')
     this.ball.setCollideWorldBounds(true)
     this.ball.setBounce(1)
@@ -60,6 +63,10 @@ export default class Demo extends Phaser.Scene {
       color: '#ff7b25'
     })
 
+   
+    this.physics.add.collider(this.ball,this.player,()=>{
+      this.numberOfBlocksDestroyed = 0
+    })
   }
 
   update(){
@@ -89,6 +96,7 @@ export default class Demo extends Phaser.Scene {
   private initBall(){
     if(!this.ball) return
 
+    this.numberOfBlocksDestroyed = 0
     this.ball.setPosition(400,500)
 
     // Random x velocity
@@ -109,13 +117,14 @@ export default class Demo extends Phaser.Scene {
     this.numberOfBlocks = 22
     // Create all blocks
     for (let i = 0; i < 22; i++) {
-      const block = this.physics.add.staticImage(64 + 32 * i,16,'block');
+      const block = this.physics.add.staticImage(64 + 32 * i,16 * 2,'block');
 
       if(this.ball)
         this.physics.add.collider(this.ball,block,()=>{
           block.destroy()
           this.numberOfBlocks--;
-          this.score++
+          this.score+= this.numberOfBlocksDestroyed + 1
+          this.numberOfBlocksDestroyed++
           this.scoreText?.setText(this.score.toString())
         })    
     }

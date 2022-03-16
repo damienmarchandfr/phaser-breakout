@@ -19,3 +19,7 @@
   font-size: 0.7em;
   margin-top: 5em;
 }
+
+#menu > * > a {
+  color: black;
+}
