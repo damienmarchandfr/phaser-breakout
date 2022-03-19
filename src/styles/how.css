@@ -1,3 +1,11 @@
 #how {
   text-align: center;
 }
+
+#how .action {
+  color: white;
+}
+
+#how img {
+  transform: scale(2);
+}

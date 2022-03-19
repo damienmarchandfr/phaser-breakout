@@ -2,24 +2,24 @@
   text-align: center;
 }
 
-#menu > #menu-buttons {
+#menu #menu-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-#menu > h1 {
+#menu h1 {
   color: white;
   font-size: 3em;
   padding-bottom: 2em;
 }
 
-#menu > #damien-marchand {
+#menu #damien-marchand {
   font-size: 0.7em;
   margin-top: 5em;
 }
 
-#menu > * > a {
+#menu a {
   color: black;
 }
